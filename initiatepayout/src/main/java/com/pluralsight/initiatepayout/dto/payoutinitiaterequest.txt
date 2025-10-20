@@ -1,0 +1,30 @@
+{
+    "beneficiary_details": {
+      "address": {
+        "line1": "12A",
+        "city": "Gurugram",
+        "state": "Haryana",
+        "country": "IN",
+        "postal_code": "122002"
+      },
+      "destination_details": {
+        "type": "bank",
+        "bank": {
+          "bank_codes": {
+            "ifsc_code": "1148000312"
+          },
+          "account_number": "1140668456987",
+          "bank_name": "Bank of India",
+          "country": "IN",
+          "currency": "INR"
+        }
+      },
+      "name": "John Doe",
+      "type": "individual"
+    },
+    "purpose": "PYR001",
+    "amount": 1000,
+    "currency": "USD",
+    "transaction_description": "Management Fees"
+  }
+  

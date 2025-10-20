@@ -1,0 +1,98 @@
+{
+    "status": "success",
+    "message": "",
+    "data": {
+        "amount": 1000,
+        "balance_transaction": "",
+        "beneficiary": "bnf_d3l8pshk2e5hsj7343g0",
+        "beneficiary_details": {
+            "address": {
+                "city": "Gurugram",
+                "country": "IN",
+                "line1": "12A",
+                "postal_code": "122002",
+                "state": "Haryana"
+            },
+            "date_of_birth": "",
+            "destination": "",
+            "destination_details": {
+                "bank": {
+                    "account_number": "1140668456987",
+                    "account_type": "",
+                    "bank_codes": {
+                        "ifsc_code": "1148000312"
+                    },
+                    "bank_name": "Bank of India",
+                    "branch_name": "",
+                    "country": "IN",
+                    "currency": "INR",
+                    "firc_required": false,
+                    "purpose_code": "",
+                    "transfer_type": ""
+                },
+                "type": "bank"
+            },
+            "documents": [],
+            "email": "",
+            "name": "John Doe",
+            "name_local": "",
+            "national_identification_number": "",
+            "party_classification": "",
+            "phone": null,
+            "registration_number": "",
+            "tax_id": "",
+            "type": "individual"
+        },
+        "charge_type": "",
+        "confirmation_documents": [],
+        "created_at": "2025-10-12T07:17:08.258741Z",
+        "currency": "USD",
+        "destination_fx_quote": "fx_d3llbsobsvgkklul6t20",
+        "documents": [],
+        "holding_currency": "USD",
+        "holding_fx_quote": "fx_d3llbsobsvgkklul6t1g",
+        "holding_fx_transaction": {
+            "exchange_rate": 1,
+            "final": {
+                "amount": 1000,
+                "currency": "USD"
+            },
+            "id": "fx_d3llbsobsvgkklul6t1g",
+            "initial": {
+                "amount": 1000,
+                "currency": "USD"
+            },
+            "object": "fx_transaction"
+        },
+        "id": "pot_d3llbspk2e5hsj73crsg",
+        "local": {
+            "fund_transfer_network": ""
+        },
+        "logistics_tracking_details": [],
+        "metadata": null,
+        "mt103": "",
+        "object": "payout",
+        "payout_fx_transaction": {
+            "exchange_rate": 85.210959,
+            "final": {
+                "amount": 85211,
+                "currency": "INR"
+            },
+            "id": "fx_d3llbsobsvgkklul6t20",
+            "initial": {
+                "amount": 1000,
+                "currency": "USD"
+            },
+            "object": "fx_transaction"
+        },
+        "purpose": "PYR001",
+        "quote": "",
+        "reference_id": "",
+        "statement_descriptor": "",
+        "status": "processing",
+        "status_description": "",
+        "tracking_details": null,
+        "transaction_description": "Management Fees",
+        "type": "local"
+    }
+}

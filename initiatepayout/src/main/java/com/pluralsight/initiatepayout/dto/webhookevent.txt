@@ -1,0 +1,64 @@
+{
+  "type": "payout.succeeded",
+  "id": "evt_d3lnibl7lkm1t0g3sefg",
+  "object": "event",
+  "created_at": "2025-10-12T09:47:26.345541934Z",
+  "data": {
+    "local": {},
+    "tracking_details": {
+      "tracking_number": "UETR20240311001",
+      "tracking_type": "uetr"
+    },
+    "created_at": "2025-10-12T09:45:23.909174Z",
+    "beneficiary_details": {
+      "address": {
+        "line1": "13A",
+        "line2": "",
+        "postal_code": "122001",
+        "city": "Gurugram",
+        "state": "Haryana",
+        "country": "IN"
+      },
+      "destination_details": {
+        "bank": {
+          "bank_codes": {
+            "ifsc_code": "11480000312"
+          },
+          "account_number": "1140668456987",
+          "bank_name": "Bank of America",
+          "country": "IN",
+          "currency": "INR"
+        },
+        "type": "bank"
+      },
+      "phone": {},
+      "name": "Meenakshi Sharma",
+      "type": "individual"
+    },
+    "payout_fx_transaction": {
+      "initial": {
+        "currency": "USD",
+        "amount": 2000
+      },
+      "final": {
+        "currency": "INR",
+        "amount": 170407
+      },
+      "id": "fx_d3lnhcobsvgkklulckog",
+      "object": "fx_transaction",
+      "exchange_rate": 85.203389
+    },
+    "purpose": "PYR002",
+    "status": "succeeded",
+    "id": "pot_d3lnhcpk2e5hsj73edgg",
+    "holding_currency": "USD",
+    "currency": "USD",
+    "beneficiary": "bnf_d3lme01k2e5hsj73dkgg",
+    "transaction_description": "Management Fees",
+    "balance_transaction": "btr_d3lnhd1k2e5hsj73edkg",
+    "type": "local",
+    "holding_fx_quote": "fx_d3lnhcobsvgkklulcko0",
+    "destination_fx_quote": "fx_d3lnhcobsvgkklulckog",
+    "amount": 2000
+  }
+}

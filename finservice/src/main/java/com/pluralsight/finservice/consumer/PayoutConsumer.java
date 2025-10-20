@@ -108,13 +108,11 @@ public class PayoutConsumer {
         request.setPurpose(event.getPurpose());
         request.setTransactionDescription(event.getTransactionDescription());
         
-        // Convert beneficiary details
         if (event.getBeneficiaryDetails() != null) {
             TazapayRequestDTO.BeneficiaryDetails beneficiaryDetails = new TazapayRequestDTO.BeneficiaryDetails();
             beneficiaryDetails.setName(event.getBeneficiaryDetails().getName());
             beneficiaryDetails.setType(event.getBeneficiaryDetails().getType());
             
-            // Convert address
             if (event.getBeneficiaryDetails().getAddress() != null) {
                 TazapayRequestDTO.Address address = new TazapayRequestDTO.Address();
                 address.setLine1(event.getBeneficiaryDetails().getAddress().getLine1());
@@ -125,12 +123,10 @@ public class PayoutConsumer {
                 beneficiaryDetails.setAddress(address);
             }
             
-            // Convert destination details
             if (event.getBeneficiaryDetails().getDestinationDetails() != null) {
                 TazapayRequestDTO.DestinationDetails destinationDetails = new TazapayRequestDTO.DestinationDetails();
                 destinationDetails.setType(event.getBeneficiaryDetails().getDestinationDetails().getType());
                 
-                // Convert bank details
                 if (event.getBeneficiaryDetails().getDestinationDetails().getBank() != null) {
                     TazapayRequestDTO.Bank bank = new TazapayRequestDTO.Bank();
                     bank.setAccountNumber(event.getBeneficiaryDetails().getDestinationDetails().getBank().getAccountNumber());
@@ -138,7 +134,6 @@ public class PayoutConsumer {
                     bank.setCountry(event.getBeneficiaryDetails().getDestinationDetails().getBank().getCountry());
                     bank.setCurrency(event.getBeneficiaryDetails().getDestinationDetails().getBank().getCurrency());
                     
-                    // Convert bank codes
                     if (event.getBeneficiaryDetails().getDestinationDetails().getBank().getBankCodes() != null) {
                         TazapayRequestDTO.BankCodes bankCodes = new TazapayRequestDTO.BankCodes();
                         bankCodes.setIfscCode(event.getBeneficiaryDetails().getDestinationDetails().getBank().getBankCodes().getIfscCode());

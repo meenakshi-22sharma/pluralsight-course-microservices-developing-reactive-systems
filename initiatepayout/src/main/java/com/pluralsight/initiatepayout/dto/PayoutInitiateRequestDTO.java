@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 
 public class PayoutInitiateRequestDTO {
 
+    @NotBlank
     private String requestId;
 
     @NotNull

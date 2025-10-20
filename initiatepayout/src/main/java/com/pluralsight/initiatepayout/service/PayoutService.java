@@ -30,7 +30,7 @@ public class PayoutService {
     }
 
     public PayoutInitiateResponseDTO initiateExternalPayout(PayoutInitiateRequestDTO payload) {
-        String requestID = UUID.randomUUID().toString();
+        String requestID = payload.getRequestId();
         payload.setRequestId(requestID);
         
         String value;

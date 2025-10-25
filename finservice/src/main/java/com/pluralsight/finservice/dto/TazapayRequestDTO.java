@@ -12,7 +12,18 @@ public class TazapayRequestDTO {
     @NotNull
     @JsonProperty("beneficiary_details")
     private BeneficiaryDetails beneficiaryDetails;
+
+    @NotBlank
+    private String requestId;
     
+    public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
+    }
+
     @NotBlank
     private String purpose;
     

@@ -35,6 +35,7 @@ public class TazapayService {
                 .header("accept", "application/json")
                 .header("authorization", authorization)
                 .header("content-type", "application/json")
+                .header("Idempotency-Key", request.getRequestId())                
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(TazapayResponseDTO.class)

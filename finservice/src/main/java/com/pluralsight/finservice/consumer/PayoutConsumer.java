@@ -69,33 +69,33 @@ public class PayoutConsumer {
             String tazapayId = data.getId();
             String currency = data.getCurrency();
             
-            PayoutStatus payoutStatus = payoutStatusRepo.findById(requestId).orElse(null);
-            if (payoutStatus != null) {
-                payoutStatus.setTazapayId(tazapayId);
-                payoutStatus.setStatus("PENDING");
+            PayoutStatus payoutStatus = new PayoutStatus();
+            payoutStatus.setReferenceId(requestId);
+            payoutStatus.setTazapayId(tazapayId);
+            payoutStatus.setStatus("PENDING");
+            payoutStatus.setCreatedAt(java.time.OffsetDateTime.now());
+            
+            // Only update FX data if payoutFxTransaction is not null
+            if (data.getPayoutFxTransaction() != null) {
+                String finalCurrency = data.getPayoutFxTransaction().getFinalAmount().getCurrency();
+                String currencyCode = currency + "/" + finalCurrency;
+                Double fxRate = data.getPayoutFxTransaction().getExchangeRate();
+                Integer baseAmount = data.getPayoutFxTransaction().getFinalAmount().getAmount();
                 
-                // Only update FX data if payoutFxTransaction is not null
-                if (data.getPayoutFxTransaction() != null) {
-                    String finalCurrency = data.getPayoutFxTransaction().getFinalAmount().getCurrency();
-                    String currencyCode = currency + "/" + finalCurrency;
-                    Double fxRate = data.getPayoutFxTransaction().getExchangeRate();
-                    Integer baseAmount = data.getPayoutFxTransaction().getFinalAmount().getAmount();
-                    
-                    payoutStatus.setCurrencyCode(currencyCode);
-                    payoutStatus.setFxRate(fxRate);
-                    payoutStatus.setBaseAmount(baseAmount);
-                    
-                    log.info("Updated payout status for requestId: {} with TazapayId: {}, CurrencyCode: {}, FxRate: {}, BaseAmount: {}", 
-                            requestId, tazapayId, currencyCode, fxRate, baseAmount);
-                } else {
-                    // Set basic currency info without FX data
-                    payoutStatus.setCurrencyCode(currency);
-                    log.info("Updated payout status for requestId: {} with TazapayId: {}, Currency: {} (no FX data available)", 
-                            requestId, tazapayId, currency);
-                }
+                payoutStatus.setCurrencyCode(currencyCode);
+                payoutStatus.setFxRate(fxRate);
+                payoutStatus.setBaseAmount(baseAmount);
                 
-                payoutStatusRepo.save(payoutStatus);
+                log.info("Updated payout status for requestId: {} with TazapayId: {}, CurrencyCode: {}, FxRate: {}, BaseAmount: {}", 
+                        requestId, tazapayId, currencyCode, fxRate, baseAmount);
+            } else {
+                // Set basic currency info without FX data
+                payoutStatus.setCurrencyCode(currency);
+                log.info("Updated payout status for requestId: {} with TazapayId: {}, Currency: {} (no FX data available)", 
+                        requestId, tazapayId, currency);
             }
+            
+            payoutStatusRepo.save(payoutStatus);
         } catch (Exception e) {
             log.error("Failed to update payout status for requestId: {}", requestId, e);
         }
